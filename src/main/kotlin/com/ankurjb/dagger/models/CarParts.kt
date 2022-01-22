@@ -10,6 +10,8 @@ class Car @Inject constructor(
 
     fun drive() {
         println(engine.getEngine())
+        println(wheels.tires.tireTube.quality)
+        println(wheels.tires.air.quality)
         println(wheels.getWheels())
     }
 
@@ -35,7 +37,9 @@ class Engine @Inject constructor() {
     fun getEngine() = "engine started"
 }
 
-class Wheels @Inject constructor() {
+class Wheels @Inject constructor(
+    val tires: Tires
+) {
     fun getWheels() = "wheels rolling"
 }
 
