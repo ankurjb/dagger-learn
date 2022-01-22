@@ -6,12 +6,12 @@ class Car @Inject constructor(
     private val engine: Engine,
     private val wheels: Wheels
 ) {
+    val carName = "lamborghini"
+
     fun drive() {
         println(engine.getEngine())
         println(wheels.getWheels())
     }
-
-    fun getCarName() = "lamborghini"
 
 
     /**
@@ -41,6 +41,6 @@ class Wheels @Inject constructor() {
 
 class Remote @Inject constructor() {
     fun attachRemote(car: Car) {
-        println("remote added to ${car.getCarName()}")
+        println("remote added to ${car.carName}")
     }
 }
