@@ -33,8 +33,16 @@ class Car @Inject constructor(
     }
 }
 
-class Engine @Inject constructor() {
-    fun getEngine() = "engine started"
+interface Engine {
+    fun getEngine(): String
+}
+
+class PetrolEngine @Inject constructor() : Engine {
+    override fun getEngine() = "petrol engine started"
+}
+
+class DieselEngine @Inject constructor() : Engine {
+    override fun getEngine() = "diesel engine started"
 }
 
 class Wheels @Inject constructor(
