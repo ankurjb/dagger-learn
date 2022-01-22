@@ -17,7 +17,7 @@ class Car @Inject constructor(
     /**
      * We need to add Inject on function because it requires a Remote object which needs to be injected
      *
-     * Since constructor or Car is injected we don't need to manually inject remote using dagger
+     * Since constructor of Car is injected we don't need to manually inject remote using dagger
      * by using DaggerComponent.create() like we did in our Activity
      *
      * Order will be like
