@@ -4,7 +4,9 @@ import com.ankurjb.dagger.MyActivity
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Named
+import javax.inject.Singleton
 
+@Singleton
 @Component(modules = [TyresModule::class, PetrolEngineModule::class])
 interface CarComponent {
     fun inject(myActivity: MyActivity)

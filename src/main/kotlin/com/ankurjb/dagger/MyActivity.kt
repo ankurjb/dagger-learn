@@ -28,7 +28,11 @@ class MyActivity {
     @Inject
     lateinit var car: Car
 
+    @Inject
+    lateinit var car2: Car
+
     fun onCreate() {
         car.drive()
+        car2.drive()
     }
 }

@@ -2,10 +2,12 @@ package com.ankurjb.dagger.models
 
 import javax.inject.Inject
 import javax.inject.Named
+import javax.inject.Singleton
 
 class Car @Inject constructor(
     private val engine: Engine,
-    private val wheels: Wheels
+    private val wheels: Wheels,
+    private val driver: Driver
 ) {
     val carName = "lamborghini"
 
@@ -14,6 +16,7 @@ class Car @Inject constructor(
         println(wheels.tires.tireTube.quality)
         println(wheels.tires.air.quality)
         println(wheels.getWheels())
+        println("${driver.hashCode()} is driving")
     }
 
 
@@ -33,6 +36,20 @@ class Car @Inject constructor(
         remote.attachRemote(this)
     }
 }
+
+/**
+ * To create a Singleton instance of an object we need to annotate the class as Singleton and
+ * also annotate the component as singleton
+ *
+ * But if we follow this approach the scope of the singleton object remains
+ * same as that of the component
+ *
+ * So if you create a new component or else your activity goes through orientation change
+ * again component will be created and singleton will be created again.
+ *
+ */
+@Singleton
+class Driver @Inject constructor()
 
 interface Engine {
     fun getEngine(): String
