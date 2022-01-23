@@ -41,8 +41,10 @@ class PetrolEngine @Inject constructor() : Engine {
     override fun getEngine() = "petrol engine started"
 }
 
-class DieselEngine @Inject constructor() : Engine {
-    override fun getEngine() = "diesel engine started"
+class DieselEngine @Inject constructor(
+    private val horsePower: Int
+) : Engine {
+    override fun getEngine() = "diesel engine started with $horsePower horsePower"
 }
 
 class Wheels @Inject constructor(
