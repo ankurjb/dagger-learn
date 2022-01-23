@@ -8,7 +8,7 @@ import javax.inject.Inject
 class MyActivity {
     init {
         /**
-         * Now since we need to paas horsePower to the module we can't directly use
+         * Now since we need to pass runtime dependency horsePower to the module we can't directly use
          * DaggerComponent.create()
          *
          * We need to use builder now.
