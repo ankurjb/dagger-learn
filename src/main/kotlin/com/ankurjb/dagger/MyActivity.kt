@@ -6,7 +6,23 @@ import javax.inject.Inject
 
 class MyActivity {
     init {
-        DaggerCarComponent.create().inject(this)
+        /**
+         * Now since we need to pass runtime dependency horsePower to the module we can't directly use
+         * DaggerComponent.create()
+         *
+         * We need to use builder now.
+         *      DaggerCarComponent
+         *          .builder()
+         *          .dieselEngineModule(DieselEngineModule(500))
+         *          .build()
+         *          .inject(this)
+         */
+        DaggerCarComponent
+            .builder()
+            .horsePower(670)
+            .tankCapacity(56)
+            .build()
+            .inject(this)
     }
 
     @Inject

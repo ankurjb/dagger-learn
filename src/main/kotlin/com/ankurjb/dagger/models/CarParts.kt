@@ -1,6 +1,7 @@
 package com.ankurjb.dagger.models
 
 import javax.inject.Inject
+import javax.inject.Named
 
 class Car @Inject constructor(
     private val engine: Engine,
@@ -37,12 +38,17 @@ interface Engine {
     fun getEngine(): String
 }
 
-class PetrolEngine @Inject constructor() : Engine {
-    override fun getEngine() = "petrol engine started"
+class PetrolEngine @Inject constructor(
+    @Named("horse power") private val horsePower: Int,
+    @Named("tank capacity") private val tankCapacity: Int
+) : Engine {
+    override fun getEngine() = "petrol engine started with $horsePower horsePower and $tankCapacity capacity"
 }
 
-class DieselEngine @Inject constructor() : Engine {
-    override fun getEngine() = "diesel engine started"
+class DieselEngine @Inject constructor(
+    private val horsePower: Int
+) : Engine {
+    override fun getEngine() = "diesel engine started with $horsePower horsePower"
 }
 
 class Wheels @Inject constructor(
